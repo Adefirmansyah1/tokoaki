@@ -1,0 +1,86 @@
+doctype html
+html
+    head
+        title
+            | #{title}
+        meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport')
+        link(rel='stylesheet' href='/adminlte/bootstrap/css/bootstrap.min.css')
+        link(rel='stylesheet' href='/font-awesome/css/font-awesome.css')
+        link(rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css')
+        link(rel='stylesheet' href='/adminlte/dist/css/AdminLTE.min.css')
+        link(rel='stylesheet' href='/adminlte/plugins/iCheck/square/blue.css')
+        link(rel='icon' type='image/png' href='images/icons/favicon.ico')
+        link(rel='stylesheet' type='text/css' href='/adminlte/template/vendor/bootstrap/css/bootstrap.min.css')
+        link(rel='stylesheet' type='text/css' href='/adminlte/template/fonts/font-awesome-4.7.0/css/font-awesome.min.css')
+        link(rel='stylesheet' type='text/css' href='/adminlte/template/fonts/iconic/css/material-design-iconic-font.min.css')
+        link(rel='stylesheet' type='text/css' href='/adminlte/template/vendor/animate/animate.css')
+        link(rel='stylesheet' type='text/css' href='/adminlte/template/vendor/css-hamburgers/hamburgers.min.css')
+        link(rel='stylesheet' type='text/css' href='/adminlte/template/vendor/animsition/css/animsition.min.css')
+        link(rel='stylesheet' type='text/css' href='/adminlte/template/vendor/select2/select2.min.css')
+        link(rel='stylesheet' type='text/css' href='/adminlte/template/vendor/daterangepicker/daterangepicker.css')
+        link(rel='stylesheet' type='text/css' href='/adminlte/template/css/util.css')
+        link(rel='stylesheet' type='text/css' href='/adminlte/template/css/main.css')
+body
+    .limiter
+        .container-login100(style="background-image: url('/adminlte/template/images/bg-01.jpg');")
+            .wrap-login100.p-l-55.p-r-55.p-t-65.p-b-54
+                form(action="/login/" method="post").login100-form.validate-form
+                    - if (messages.msg_error) 
+                        .alert.alert-danger.alert-dismissable 
+                            button.close(type='button' data-dismiss='alert' aria-hidden='true') 
+                                | ×
+                            h4
+                                i.icon.fa.fa-ban
+                                | Alert! 
+                            | !{messages.msg_error}
+                    - if  (messages.msg_info)
+                        .alert.alert-success.alert-dismissable
+                            button.close(type='button' data-dismiss='alert' aria-hidden='true')
+                                | ×
+                            h5
+                                i.icon.fa.fa-check
+                                | Success!
+                            | !{messages.msg_info}
+                    span.login100-form-title.p-b-49
+                        | Login
+                    .wrap-input100.validate-input.m-b-23(data-validate='Username is reauired')
+                        span.label-input100 Username
+                        input.input100(type='text' name='txtEmail')
+                        span.focus-input100(data-symbol='')
+                    .wrap-input100.validate-input(data-validate='Password is required')
+                        span.label-input100 Password
+                        input.input100(type='password' name='txtPassword')
+                        span.focus-input100(data-symbol='')
+                    .text-right.p-t-8.p-b-31
+                        a(href='#')
+                            | Forgot password?
+                    .container-login100-form-btn
+                        .wrap-login100-form-btn
+                            .login100-form-bgbtn
+                            button.login100-form-btn
+                                | Login
+                    .txt1.text-center.p-t-54.p-b-20
+                        span
+                            | Or Sign Up Using
+                    .flex-c-m
+                        a.login100-social-item.bg1(href='#')
+                            i.fa.fa-facebook
+                        a.login100-social-item.bg2(href='#')
+                            i.fa.fa-twitter
+                        a.login100-social-item.bg3(href='#')
+                            i.fa.fa-google
+                    .flex-col-c.p-t-155
+                        span.txt1.p-b-17
+                            | Or Sign Up Using
+                        a.txt2(href='/register')
+                            | Sign Up
+    #dropDownSelect1
+    script(src='/adminlte/template/vendor/jquery/jquery-3.2.1.min.js')
+    script(src='/adminlte/template/vendor/animsition/js/animsition.min.js')
+    script(src='/adminlte/template/vendor/bootstrap/js/popper.js')
+    script(src='/adminlte/template/vendor/bootstrap/js/bootstrap.min.js')
+    script(src='/adminlte/template/vendor/select2/select2.min.js')
+    script(src='/adminlte/template/vendor/daterangepicker/moment.min.js')
+    script(src='/adminlte/template/vendor/daterangepicker/daterangepicker.js')
+    script(src='/adminlte/template/vendor/countdowntime/countdowntime.js')
+    script(src='/adminlte/template/js/main.js')

@@ -1,0 +1,71 @@
+extends ../layout/base 
+block content 
+	section.content-header 
+		img(src="/images/toko.png")  
+	section.content
+		.box
+			.box-header.with-border
+				h3.box-title
+					| Stok Aki
+				.box-tools.pull-right
+					button(type='button', data-widget='collapse', data-toggle='tooltip',title='collapse').btn.btn-box-tool
+						i.fa.fa-minus
+			.box-body
+				- if(messages.msg_info)
+					.alert.alert-success.alert-dismissable
+						button.close(type='button', data-dismiss='alert', aria-hidden='true')
+							| ×
+						h4
+							i.icon.fa.fa-check
+							| Success!
+						| !{messages.msg_info}
+				- if(messages.msg_error)
+					.alert.alert-danger.alert-dismissable
+						button.close(type='button', data-dismiss='alert', aria-hidden='true')
+							| ×
+						h4
+							i.icon.fa.fa-ban
+							| Alert!
+						| !{messages.msg_error}
+				a(href='/stok/add').pull-left.btn.btn-primary
+					i.fa.fa-plus 
+					|  Tambah Stok Aki
+				.data-table
+					table.table.table-bordered
+						tr
+							th
+								| No
+							th
+								| Gambar
+							th
+								| Name
+							th
+								| Stok
+							th
+								| Harga
+							th
+								| Action
+							if messages.msg_error
+								| !{messages.msg_error}
+							else
+								for row, index in data 
+									tr
+										td #{index+1}
+										td 
+											if row.gambar
+												img(src="/images/upload/#{row.gambar}" height=130 width=150)
+											else
+												img(src="/images/upload/null.png" height=130 width=150)
+										td #{row.name}
+										td #{row.stok}
+										td #{row.harga}
+										td
+											div(style='display:inline-block')
+												a(href='/stok/edit/#{row.id}').btn.btn-sm.btn-primary
+														i.fa.fa-edit
+											| 
+											div(style='display:inline-block')
+												form(method='post', action='/stok/delete/#{row.id}')
+													input(type="hidden",name="_method", value="DELETE")
+													button.btn.btn-sm.btn-danger(type='submit')
+														i.fa.fa-remove
