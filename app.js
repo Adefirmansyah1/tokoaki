@@ -52,11 +52,11 @@ type koneksi : single,pool and request
 // );
 app.use(
     connection(mysql,{
-        host: process.env.MYSQLHOST,
-        user: process.env.MYSQLUSER, // your mysql user
-        password : process.env.MYSQLPASSWORD, // your mysql password
-        port : process.env.MYSQLPORT, //port mysql
-        database:process.env.MYSQLDATABASE // your database name
+        host: 'containers-us-west-33.railway.app',
+        user: 'root', // your mysql user
+        password : 'YdJa7wqmKKS73r2Xiygs', // your mysql password
+        port : 6078, //port mysql
+        database:'railway' // your database name
     },'pool') //or single
 );
 app.use('/', index);
